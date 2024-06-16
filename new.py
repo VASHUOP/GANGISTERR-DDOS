@@ -66,10 +66,10 @@ import os
 # Join :- @V3NOM_CHEAT #from keep_alive import keep_alive
 # Join :- @V3NOM_CHEAT #keep_alive()
 # Join :- @V3NOM_CHEAT # insert your Telegram bot token here
-bot = telebot.TeleBot('7141965785:AAFRsCyY6y_iW4r_GMxkXdRclUGBVRF0fYc')
+bot = telebot.TeleBot('7424479555:AAGLTfOXHLG8wpvcrbouMZKqd7L5TMbigrQ')
 
 # Join :- @V3NOM_CHEAT # Admin user IDs
-admin_id = ["1470983554","1908095816","1537783826"]
+admin_id = ["5588464519"]
 
 # Join :- @V3NOM_CHEAT # File to store allowed user IDs
 USER_FILE = "users.txt"
